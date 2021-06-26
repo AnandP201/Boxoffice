@@ -4,11 +4,12 @@ import MainPageLayout from '../Components/MainPageLayout';
 import { apiGet } from '../misc/config';
 import ShowGrid from '../Components/show/ShowGrid';
 import ActorGrid from '../Components/actor/ActorGrid';
+import { useLastQuery } from '../misc/custom-hooks';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
 
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
 
