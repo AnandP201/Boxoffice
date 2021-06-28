@@ -5,6 +5,12 @@ import { apiGet } from '../misc/config';
 import ShowGrid from '../Components/show/ShowGrid';
 import ActorGrid from '../Components/actor/ActorGrid';
 import { useLastQuery } from '../misc/custom-hooks';
+import {
+  RadioInputsWrapper,
+  SearchInput,
+  SearchButtonWrapper,
+} from './Home.styled';
+import CustomRadio from '../Components/CustomRadio';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -51,7 +57,7 @@ const Home = () => {
   };
   return (
     <MainPageLayout>
-      <input
+      <SearchInput
         type="text"
         placeholder="Search for something"
         onChange={onInputChange}
@@ -59,32 +65,32 @@ const Home = () => {
         value={input}
       />
 
-      <div>
-        <label htmlFor="shows-search">
-          Shows
-          <input
+      <RadioInputsWrapper>
+        <div>
+          <CustomRadio
+            label="Shows"
             id="shows-search"
-            type="radio"
             value="shows"
             checked={isShowsSearch}
             onChange={onRadioChange}
           />
-        </label>
-        <label htmlFor="actors-search">
-          Actors
-          <input
+        </div>
+
+        <div>
+          <CustomRadio
+            label="Actors"
             id="actors-search"
-            type="radio"
             value="people"
             checked={!isShowsSearch}
             onChange={onRadioChange}
           />
-        </label>
-      </div>
-
-      <button type="button" onClick={onSearch}>
-        Search
-      </button>
+        </div>
+      </RadioInputsWrapper>
+      <SearchButtonWrapper>
+        <button type="button" onClick={onSearch}>
+          Search
+        </button>
+      </SearchButtonWrapper>
       {renderResults()}
     </MainPageLayout>
   );
