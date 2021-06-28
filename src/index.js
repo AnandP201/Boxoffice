@@ -4,6 +4,9 @@ import './index.css';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+serviceWorkerRegistration.register();
 
 ReactDOM.render(
   <HashRouter>
